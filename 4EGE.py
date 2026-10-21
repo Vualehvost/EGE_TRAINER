@@ -274,7 +274,7 @@ class StressTestApp:
         self.prepare_word_list()
         self.show_current_word()
 
-    # --------------------------------------------------------
+    # -------------------------------------------------------
     def load_mistakes(self):
         if os.path.exists(self.mistakes_file):
             with open(self.mistakes_file, "r", encoding="utf-8") as f:
