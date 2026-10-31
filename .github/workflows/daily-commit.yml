@@ -1,0 +1,29 @@
+name: Daily README Update
+on:
+  schedule:
+    - cron: '0 4 * * *'
+  workflow_dispatch: # Кнопка ручного запуска для проверки
+
+permissions:
+  contents: write
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Add random line from lines.txt to README
+        run: |
+          RANDOM_LINE=$(shuf -n 1 lines.txt)
+          echo "" >> README.md
+          echo "$RANDOM_LINE" >> README.md
+
+      - name: Commit and push
+        run: |
+          git config user.name "Vualehvost"
+          git config user.email "329123039+Vualehvost@users.noreply.github.com"
+          git add README.md
+          git commit -m "chore: daily update [skip ci]"
+          git push
