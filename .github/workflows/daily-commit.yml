@@ -1,7 +1,7 @@
 name: Daily README Update
 on:
   schedule:
-    - cron: '0 4 * * *'
+    - cron: '41 1 * * *'
   workflow_dispatch: # Кнопка ручного запуска для проверки
 
 permissions:
